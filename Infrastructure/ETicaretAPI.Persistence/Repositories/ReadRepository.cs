@@ -2,12 +2,7 @@
 using ETicaretAPI.Domain.Entities.Common;
 using ETicaretAPI.Persistence.Contexts;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Linq.Expressions;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ETicaretAPI.Persistence.Repositories
 {
@@ -26,7 +21,7 @@ namespace ETicaretAPI.Persistence.Repositories
         {
             var query = Table.AsQueryable();
             if (!tracking)
-                query= query.AsNoTracking();
+                query = query.AsNoTracking();
             return query;
         }
         public IQueryable<T> GetWhere(Expression<Func<T, bool>> method, bool tracking = true)
